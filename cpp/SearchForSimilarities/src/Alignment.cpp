@@ -1,19 +1,19 @@
-#include "Alignment.h"
+#include "../include/Alignment.h"
 
 #include <iostream>
 
 
 /**************** Constructor ****************/
-Alignment::Alignment(const string align_path) {
+Alignment::Alignment(const string align_file) {
 	ifstream input;
 	string line;
 
-	this->open_file(input, align_path);
+	this->open_file(input, align_file);
 
 	while (getline(input, line)) {
-		if (line.find("-") != -1) {
+		//if (line.find("-") != -1) {
 			this->aligned_lines.push_back(line);
-		}
+		//}
 	}
 
 	this->N = aligned_lines.size();

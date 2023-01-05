@@ -20,7 +20,7 @@ private:
 	void bases_pairs(vector<vector<float>>& t, const vector<string>& lines, const vector<vector<float>>& freq_arr) const;
 	void pwm_matrix(vector<vector<float>>& pwm, const vector<vector<float>>& t, const vector<float>& f, const vector<float>& proba);
 public:
-	Alignment(const string align_path);
+	Alignment(const string align_file);
 public:
 	int get_count()  { return this->N; }
 	unsigned int get_length() { return this->L; }

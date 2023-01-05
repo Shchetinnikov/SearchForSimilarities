@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <tuple>
 #include <algorithm>
 #include <stdexcept>
 
@@ -35,12 +36,13 @@ private:
     vector<unsigned int> S2;
     vector<vector<float>> pwm;
     unsigned int L;
-    float d = 35;
-    float e = 8;
+    float d;
+    float e;
 public:
-    NeedlemanWunsch(const vector<unsigned int>& S1, const vector<unsigned int>& S2, const vector<vector<float>>& pwm, float d = 35, float e = 8);
+    NeedlemanWunsch(const vector<unsigned int>& S1, const vector<unsigned int>& S2, const vector<vector<float>>& pwm, float d = 1, float e = 0.25);
 public:
-    unsigned int get_matrix_size() { return this->L; }
+    unsigned int get_matrix_size() { return this->nodes.size(); }
+    vector<tuple<unsigned int, unsigned int>> get_matrix_path();
 private:
     float calc_Fx(unsigned int i, unsigned int j);
     float calc_Fy(unsigned int i, unsigned int j);
